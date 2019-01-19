@@ -1,17 +1,26 @@
+/*header contain transition and animation*/
 header {
     width:300px;
     height:100px;
     color:#3C3C3F;
     font-size:50px;
     padding: 10px;
-    border: 3px solid gray;
+    border: 4px solid transparent;
     background-color: rgba(200,200,200, 0.9);
+    animation: sometext 1.5s linear 0s;
     position: relative;
-    animation: sometext 3s repeat 0 infinite alternate;
     text-align:center;
     margin:auto;
     box-shadow: 5px 6px #888888;
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    border-image:url(image1.png) 18 ;
 }
+header:hover {
+  width: 500px;
+}
+/*the background was create with linear-gradient*/
 body {
 	overflow: hidden;
 	background: linear-gradient(45deg, white 25%,
@@ -20,26 +29,70 @@ body {
     #C9C9D4 75%);
 	background-size: 50px 50px;
 }
-div{
-    display: inline;
-    margin:auto;
-    text-align:center;
-    padding:100px;
+/*this is the arrow made with border properties*/
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+}
+#text2 {
+    font-size:40px;
+    color:#3C3C3F;
+    background-color: rgba(200,200,200, 0.9);
+    box-shadow: 5px 6px #888888;
+}
+#wrapper{
     position:relative;
+    width:900px;
+    height:900px;
+    margin: 0 auto;
+    text-align: center;
 }
-#div1{
-    color: blue;
+#circle {
+    display: inline-block;
+    margin:80px;
+    box-shadow: 5px 6px #888888;
+    background-color:white;
+    padding:75px;
+    border-radius:100px;
 }
-#div2{
-    
+.thing1{
+    animation: thing1 3s infinite;
 }
+.thing2{
+    animation: thing2 3s infinite;
+    transform: rotatez(90deg)
+}
+.thing3{
+    animation: thing3 3s infinite;
+    transform: rotatez(270deg)
+}
+.thing4{
+    animation: thing4 3s infinite;
+    transform: rotatez(180deg)
+}
+.up {
+  transform: rotate(-135deg);
+}
+
 @keyframes sometext {
-    from{text-shadow: 0 0 0 white}
-    to{text-shadow: 1px 1px 10px white}
+    from{opacity: 0}
+    to{opacity: 1}
 }
-https://tympanus.net/codrops/2012/02/21/accordion-with-css3/
-https://www.impressivewebs.com/animating-css3-gradients/
-https://www.impressivewebs.com/demo-files/animated-css3-gradient-buttons/
-http://leaverou.github.io/animatable/
-https://24ways.org/2011/css3-patterns-explained
-https://tympanus.net/codrops/2012/04/12/animated-content-tabs-with-css3/
+@keyframes thing1 {
+    25%  {transform: rotatez(0deg);}
+    50%  {transform: rotatez(90deg);}
+}
+@keyframes thing2 {
+    25%  {transform: rotatez(90deg);}
+    50%  {transform: rotatez(180deg);}
+}
+@keyframes thing3 {
+    25%  {transform: rotatez(270deg);}
+    50%  {transform: rotatez(360deg);}
+}
+@keyframes thing4 {
+    25%  {transform: rotatez(180deg);}
+    50%  {transform: rotatez(270deg);}
+}
